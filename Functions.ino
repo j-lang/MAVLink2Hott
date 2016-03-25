@@ -141,7 +141,7 @@ void convertLat (int32_t in_coords){
   deg = int (lat) ;        // 1st part: convert to int so only the part before the floating point remains as degree
   sec = (lat - deg); 
   min = int (sec * 60);    // 2nd part, take the int from the remaining part multiplied by 60 to convert to min
-  deg_sec = abs(int(((sec * 60) - min) * 60));  //HoTT does not allow the negative sign in case of the Southern hemisphere
+  deg_sec = abs(int(((sec * 60) - min) * 10000));  //HoTT does not allow the negative sign in case of the Southern hemisphere
   degMin = abs(int(deg * 100 + min));
 } /* end convertLat */
 
@@ -155,7 +155,7 @@ void convertLon (int32_t in_coords){
   deg = int (lon) ;        // 1st part: convert to int so only the part before the floating point remains as degree
   sec = (lon - deg); 
   min = int (sec * 60);    // 2nd part, take the int from the remaining part multiplied by 60 to convert to min
-  deg_sec = abs(int(((sec * 60) - min) * 60));  //HoTT does not allow the negative sign in case of the Southern hemisphere
+  deg_sec = abs(int(((sec * 60) - min) * 10000));  //HoTT does not allow the negative sign in case of the Southern hemisphere
   degMin = abs(int(deg * 100 + min));
 } /* end convertLon */
 
@@ -163,6 +163,8 @@ void convertLon (int32_t in_coords){
 #ifdef SERDB
 void printDebugInfo(){
   DPN(" apm_mav_type; ");
+  DPN(apm_system_status);  
+  DPN(" apm_system_status; ");
   DPN(apm_mav_type);  
   DPN(" apm_fixtype; ");
   DPN(apm_fixtype);

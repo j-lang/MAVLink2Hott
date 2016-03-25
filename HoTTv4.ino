@@ -226,20 +226,12 @@ static void hottV4SendGPS() {
   HoTTV4GPSModule.pos_NS               = pos_NS;                   /* calculated by convertLat / convertLon */
   HoTTV4GPSModule.pos_NS_dm            = degMin;
   HoTTV4GPSModule.pos_NS_sec           = deg_sec;
-    DPN(" pos_NS_dm; ");
-  DPN(HoTTV4GPSModule.pos_NS_dm);
-  DPN(" pos_NS_sec; ");
-  DPN(HoTTV4GPSModule.pos_NS_sec);
-  
+
   convertLon (apm_longitude);
   HoTTV4GPSModule.pos_EW               = pos_EW;
   HoTTV4GPSModule.pos_EW_dm            = degMin;
   HoTTV4GPSModule.pos_EW_sec           = deg_sec;
-    DPN(" pos_EW_dm; ");
-  DPN(HoTTV4GPSModule.pos_EW_dm);
-  DPN(" pos_EW_sec; ");
-  DPN(HoTTV4GPSModule.pos_EW_sec);
-  
+
   
  // functions.ino // HoTTV4GPSModule.home_distance        = home_distance_calc;
   HoTTV4GPSModule.gps_speed            = apm_gps_vel * 3.6;        /* gps speed in m/s, convert to km/h */
@@ -267,7 +259,6 @@ static void hottV4SendGPS() {
  */
 static void hottV4SendVario() {
   /** Minimum data set for Vario */
-  DPL("Send Vario");  
   
   HoTTV4VarioModule.startByte          = 0x7C;
   HoTTV4VarioModule.vario_sensor_id    = HOTTV4_VARIO_MODULE;

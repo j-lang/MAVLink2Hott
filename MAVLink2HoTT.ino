@@ -228,6 +228,7 @@ void _MavLink_receive() {
 			    {
 			     case MAVLINK_MSG_ID_HEARTBEAT:  // 0
                                 apm_mav_type    = mavlink_msg_heartbeat_get_type(&msg);
+                                apm_system_status    = mavlink_msg_heartbeat_get_system_status(&msg);
                                 apm_base_mode   = (mavlink_msg_heartbeat_get_base_mode(&msg) & 0x80) > 7;
                                 apm_custom_mode = mavlink_msg_heartbeat_get_custom_mode(&msg);
                                 apm_mav_mode = apm_base_mode || apm_custom_mode;
